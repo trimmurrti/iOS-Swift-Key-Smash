@@ -6,8 +6,6 @@
 //  Copyright © 2017 Piikea Street. All rights reserved.
 //
 
-import Foundation
-
 extension String {
     func characterStrings() -> [String] {
         return self.characters.map { String($0) }
