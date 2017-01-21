@@ -24,7 +24,7 @@ class SayPressedKey: Modeable {
     
     func say(_ word: String) {
         let utterance = AVSpeechUtterance(string: word.lowercased())
-        synthesizer.stopSpeaking(at: AVSpeechBoundary.immediate)
-        synthesizer.speak(utterance)
+        self.synthesizer.stopSpeaking(at: AVSpeechBoundary.immediate)
+        self.synthesizer.speak(utterance)
     }
 }
