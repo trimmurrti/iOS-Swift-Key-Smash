@@ -7,7 +7,26 @@
 //
 
 import Foundation
+import AVFoundation
 
-class Mode {
+class Mode: Modeable {
+    let synthesizer = AVSpeechSynthesizer()
     
+    func say(_ word: String, immediately: Bool = true) {
+        let synthesizer = self.synthesizer
+        if immediately {
+            synthesizer.stopSpeaking(at: .immediate)
+        }
+        
+        let utterance = AVSpeechUtterance(string: word.lowercased())
+        synthesizer.speak(utterance)
+    }
+    
+    func start() {
+        
+    }
+    
+    func respond(to key:String) {
+        
+    }
 }
