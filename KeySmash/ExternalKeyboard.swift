@@ -13,7 +13,7 @@ extension UIKeyCommand {
     }
 }
 
-func externalKeyboardKeys(callback:Selector) -> [UIKeyCommand] {
+func externalKeyboardKeys(_ callback:Selector) -> [UIKeyCommand] {
     var commands = [UIKeyCommand]()
     let noModifiers = UIKeyModifierFlags(rawValue: 0)
 
@@ -21,18 +21,18 @@ func externalKeyboardKeys(callback:Selector) -> [UIKeyCommand] {
     let digits = "!@#$%^&*()~`_+{}|:\"<>?abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-=[]\\;',./ "
     
     for digit in digits.characters {
-        commands += [noModifiers, .AlphaShift, .Shift, [.AlphaShift, .Shift]].map { UIKeyCommand(digit, $0, callback) }
+        commands += [noModifiers, .alphaShift, .shift, [.alphaShift, .shift]].map { UIKeyCommand(digit, $0, callback) }
     }
     
     // handle some lingering press on ctrl/alt/command + digit
     for digit in digits.characters {
-        let modifiers:Array<UIKeyModifierFlags> = [.Command,
-                                                   .Control,
-                                                   .Alternate,
-                                                   [.Command, .Control], //not an array, single optionset, command+control
-                                                   [.Command, .Alternate],
-                                                   [.Command, .Control, .Alternate],
-                                                   [.Control, .Alternate]
+        let modifiers:Array<UIKeyModifierFlags> = [.command,
+                                                   .control,
+                                                   .alternate,
+                                                   [.command, .control], //not an array, single optionset, command+control
+                                                   [.command, .alternate],
+                                                   [.command, .control, .alternate],
+                                                   [.control, .alternate]
                                                   ]
         
         commands += modifiers.map { UIKeyCommand(digit, $0, callback) }

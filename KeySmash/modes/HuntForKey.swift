@@ -12,35 +12,32 @@ class HuntForKey : Mode {
         randomizeKey()
     }
     
-    func respondTo(key: String)  {
-        if(key == targetKey)
-        {
+    func respondTo(_ key: String)  {
+        if(key == targetKey)         {
             immediatelySay("Great job! You pressed the letter \(targetKey)")
             
             randomizeKey()
-        }
-        else
-        {
+        } else {
             immediatelySay("No.  Try again.  Press the \(targetKey) key")
         }
     }
     
     func randomizeKey () {
-        let randomLetterIndex = random() % letters.count
+        let randomLetterIndex = Int(arc4random()) % letters.count
         targetKey = String(letters[randomLetterIndex])
         
         say("Press the \(targetKey) key")
     }
     
-    func say(word: String) {
-        let utterance = AVSpeechUtterance(string: word.lowercaseString)
-        synthesizer.speakUtterance(utterance)
+    func say(_ word: String) {
+        let utterance = AVSpeechUtterance(string: word.lowercased())
+        synthesizer.speak(utterance)
     }
     
-    func immediatelySay(word: String) {
-        let utterance = AVSpeechUtterance(string: word.lowercaseString)
-        synthesizer.stopSpeakingAtBoundary(.Immediate)
-        synthesizer.speakUtterance(utterance)
+    func immediatelySay(_ word: String) {
+        let utterance = AVSpeechUtterance(string: word.lowercased())
+        synthesizer.stopSpeaking(at: .immediate)
+        synthesizer.speak(utterance)
     }
     
 }

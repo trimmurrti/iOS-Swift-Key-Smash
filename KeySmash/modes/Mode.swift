@@ -3,5 +3,5 @@ import UIKit
 
 protocol Mode {
     func start() -> Void
-    func respondTo(key:String) -> Void
+    func respondTo(_ key:String) -> Void
 }
