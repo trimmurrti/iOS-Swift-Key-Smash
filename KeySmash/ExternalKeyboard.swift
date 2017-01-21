@@ -1,49 +1,39 @@
 import Foundation
 import UIKit
 
-extension UIKeyCommand {
-    // allow unnamed params since we re-use this like 20 times in close proximity and the meaning is clear.
-    
-    convenience init( _ input: Character!, _ modifierFlags: UIKeyModifierFlags, _ action: Selector) {
-        self.init(input: String(input), modifierFlags: modifierFlags, action: action)
-    }
-    
-    convenience init( _ input: String!, _ modifierFlags: UIKeyModifierFlags, _ action: Selector) {
-        self.init(input: input, modifierFlags: modifierFlags, action: action)
-    }
-}
+typealias KeyCommands = [UIKeyCommand]
 
-func externalKeyboardKeys(_ callback:Selector) -> [UIKeyCommand] {
-    var commands = [UIKeyCommand]()
+func externalKeyboardKeys(_ callback:Selector) -> KeyCommands {
     let noModifiers = UIKeyModifierFlags(rawValue: 0)
+    
+    func mapper(keys: [String], modifiers: [UIKeyModifierFlags]) -> KeyCommands {
+        return modifiers.flatMap { m in keys.map {
+            UIKeyCommand(input: $0, modifierFlags: m, action: callback) }
+        }
+    }
 
     // order matters.  ! needs priority over shift-1, @ over shift-2, etc
-    let digits = "!@#$%^&*()~`_+{}|:\"<>?abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-=[]\\;',./ "
+    let characters = "!@#$%^&*()~`_+{}|:\"<>?abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-=[]\\;',./ "
+        .characterStrings()
     
-    for digit in digits.characters {
-        commands += [noModifiers, .alphaShift, .shift, [.alphaShift, .shift]].map { UIKeyCommand(digit, $0, callback) }
+    let modifiers = [
+        noModifiers,
+        .alphaShift,
+        .shift,
+        [.alphaShift, .shift],
+        .command,
+        .control,
+        .alternate,
+        [.command, .control],
+        [.command, .alternate],
+        [.command, .control, .alternate],
+        [.control, .alternate]
+    ]
+
+    let keys = [UIKeyInputEscape, UIKeyInputUpArrow, UIKeyInputDownArrow, UIKeyInputLeftArrow, UIKeyInputRightArrow]
+    
+    return [(keys, [noModifiers]), (characters, modifiers)].reduce(KeyCommands()) {
+        $0 + mapper(keys: $1.0, modifiers: $1.1)
     }
-    
-    // handle some lingering press on ctrl/alt/command + digit
-    for digit in digits.characters {
-        let modifiers:Array<UIKeyModifierFlags> = [.command,
-                                                   .control,
-                                                   .alternate,
-                                                   [.command, .control], //not an array, single optionset, command+control
-                                                   [.command, .alternate],
-                                                   [.command, .control, .alternate],
-                                                   [.control, .alternate]
-                                                  ]
-        
-        commands += modifiers.map { UIKeyCommand(digit, $0, callback) }
-    }
-    
-    commands += [UIKeyCommand(UIKeyInputEscape, noModifiers, callback),
-                 UIKeyCommand(UIKeyInputUpArrow, noModifiers, callback),
-                 UIKeyCommand(UIKeyInputDownArrow, noModifiers, callback),
-                 UIKeyCommand(UIKeyInputLeftArrow, noModifiers, callback),
-                 UIKeyCommand(UIKeyInputRightArrow, noModifiers, callback)]
-    
-    return commands
 }
 
