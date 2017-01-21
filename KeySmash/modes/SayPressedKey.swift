@@ -2,14 +2,12 @@ import Foundation
 import UIKit
 import AVFoundation
 
-class SayPressedKey: Modeable {
-    let synthesizer = AVSpeechSynthesizer()
-
-    func start()  {
+class SayPressedKey: Mode {
+    override func start()  {
         self.say("Press any Key")
     }
     
-    func respond(to key: String) {
+    override func respond(to key: String) {
         let keys = [
             UIKeyInputEscape: "escape",
             UIKeyInputLeftArrow: "left",
@@ -20,11 +18,5 @@ class SayPressedKey: Modeable {
         ]
     
         self.say(keys[key] ?? key)
-    }
-    
-    func say(_ word: String) {
-        let utterance = AVSpeechUtterance(string: word.lowercased())
-        self.synthesizer.stopSpeaking(at: AVSpeechBoundary.immediate)
-        self.synthesizer.speak(utterance)
     }
 }
