@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4547C2A2195DF1C10075EBB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4547C2A1195DF1C10075EBB0 /* AppDelegate.swift */; };
-		4547C2A4195DF1C10075EBB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4547C2A3195DF1C10075EBB0 /* ViewController.swift */; };
+		4547C2A4195DF1C10075EBB0 /* SmashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4547C2A3195DF1C10075EBB0 /* SmashViewController.swift */; };
 		4547C2A7195DF1C10075EBB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4547C2A5195DF1C10075EBB0 /* Main.storyboard */; };
 		4547C2A9195DF1C10075EBB0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4547C2A8195DF1C10075EBB0 /* Images.xcassets */; };
 		456C0000196EF373005E8E9C /* OrderedAlphabet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456CFFFF196EF373005E8E9C /* OrderedAlphabet.swift */; };
@@ -17,15 +17,18 @@
 		456CDE9F196ED97D00B0F836 /* Modeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456CDE9C196ED97D00B0F836 /* Modeable.swift */; };
 		456CDEA0196ED97D00B0F836 /* SayPressedKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456CDE9D196ED97D00B0F836 /* SayPressedKey.swift */; };
 		45FC1162196DCB63008985F0 /* ExternalKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FC1161196DCB63008985F0 /* ExternalKeyboard.swift */; };
+		52CDC69E0E8592D5C9257C0C /* Pods_KeySmash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDC06DC216E05DC698BFF22B /* Pods_KeySmash.framework */; };
 		D754B1C01E339A1D00A85BDC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D754B1BF1E339A1D00A85BDC /* AVFoundation.framework */; };
 		D754B1C21E33D52B00A85BDC /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754B1C11E33D52B00A85BDC /* String+Extensions.swift */; };
+		D754B1C41E33DC5000A85BDC /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754B1C31E33DC5000A85BDC /* Mode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		110CBB4E03A0DB1057C38E52 /* Pods-KeySmash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeySmash.release.xcconfig"; path = "Pods/Target Support Files/Pods-KeySmash/Pods-KeySmash.release.xcconfig"; sourceTree = "<group>"; };
 		4547C29C195DF1C10075EBB0 /* KeySmash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeySmash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4547C2A0195DF1C10075EBB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4547C2A1195DF1C10075EBB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4547C2A3195DF1C10075EBB0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4547C2A3195DF1C10075EBB0 /* SmashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmashViewController.swift; sourceTree = "<group>"; };
 		4547C2A6195DF1C10075EBB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4547C2A8195DF1C10075EBB0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		456C0001196EF8C5005E8E9C /* Counting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Counting.swift; sourceTree = "<group>"; };
@@ -34,8 +37,11 @@
 		456CDE9D196ED97D00B0F836 /* SayPressedKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SayPressedKey.swift; sourceTree = "<group>"; };
 		456CFFFF196EF373005E8E9C /* OrderedAlphabet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedAlphabet.swift; sourceTree = "<group>"; };
 		45FC1161196DCB63008985F0 /* ExternalKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExternalKeyboard.swift; sourceTree = "<group>"; };
+		4A345AB53AD9BA58474AB916 /* Pods-KeySmash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeySmash.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KeySmash/Pods-KeySmash.debug.xcconfig"; sourceTree = "<group>"; };
 		D754B1BF1E339A1D00A85BDC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D754B1C11E33D52B00A85BDC /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		D754B1C31E33DC5000A85BDC /* Mode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
+		FDC06DC216E05DC698BFF22B /* Pods_KeySmash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeySmash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,18 +50,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				D754B1C01E339A1D00A85BDC /* AVFoundation.framework in Frameworks */,
+				52CDC69E0E8592D5C9257C0C /* Pods_KeySmash.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3844B27CFF51251DE014A9D3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4A345AB53AD9BA58474AB916 /* Pods-KeySmash.debug.xcconfig */,
+				110CBB4E03A0DB1057C38E52 /* Pods-KeySmash.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		4547C293195DF1C10075EBB0 = {
 			isa = PBXGroup;
 			children = (
 				4547C29E195DF1C10075EBB0 /* KeySmash */,
 				4547C29D195DF1C10075EBB0 /* Products */,
 				D754B1BE1E339A1D00A85BDC /* Frameworks */,
+				3844B27CFF51251DE014A9D3 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,7 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				456CDE9A196ED97D00B0F836 /* modes */,
-				4547C2A3195DF1C10075EBB0 /* ViewController.swift */,
+				4547C2A3195DF1C10075EBB0 /* SmashViewController.swift */,
 				4547C2A1195DF1C10075EBB0 /* AppDelegate.swift */,
 				45FC1161196DCB63008985F0 /* ExternalKeyboard.swift */,
 				D754B1C11E33D52B00A85BDC /* String+Extensions.swift */,
@@ -98,6 +115,7 @@
 				456CDE9D196ED97D00B0F836 /* SayPressedKey.swift */,
 				456CFFFF196EF373005E8E9C /* OrderedAlphabet.swift */,
 				456C0001196EF8C5005E8E9C /* Counting.swift */,
+				D754B1C31E33DC5000A85BDC /* Mode.swift */,
 			);
 			path = modes;
 			sourceTree = "<group>";
@@ -106,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				D754B1BF1E339A1D00A85BDC /* AVFoundation.framework */,
+				FDC06DC216E05DC698BFF22B /* Pods_KeySmash.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -117,9 +136,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4547C2B8195DF1C10075EBB0 /* Build configuration list for PBXNativeTarget "KeySmash" */;
 			buildPhases = (
+				863F8380F862B9E97D354787 /* [CP] Check Pods Manifest.lock */,
 				4547C298195DF1C10075EBB0 /* Sources */,
 				4547C299195DF1C10075EBB0 /* Frameworks */,
 				4547C29A195DF1C10075EBB0 /* Resources */,
+				35C00ABDF4E1209DB6D7B58E /* [CP] Embed Pods Frameworks */,
+				A534DA0785FD3F49DEEA5625 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -176,6 +198,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		35C00ABDF4E1209DB6D7B58E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KeySmash/Pods-KeySmash-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		863F8380F862B9E97D354787 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A534DA0785FD3F49DEEA5625 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KeySmash/Pods-KeySmash-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4547C298195DF1C10075EBB0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -187,7 +257,8 @@
 				456CDE9F196ED97D00B0F836 /* Modeable.swift in Sources */,
 				D754B1C21E33D52B00A85BDC /* String+Extensions.swift in Sources */,
 				456CDE9E196ED97D00B0F836 /* HuntForKey.swift in Sources */,
-				4547C2A4195DF1C10075EBB0 /* ViewController.swift in Sources */,
+				D754B1C41E33DC5000A85BDC /* Mode.swift in Sources */,
+				4547C2A4195DF1C10075EBB0 /* SmashViewController.swift in Sources */,
 				456C0000196EF373005E8E9C /* OrderedAlphabet.swift in Sources */,
 				4547C2A2195DF1C10075EBB0 /* AppDelegate.swift in Sources */,
 			);
@@ -296,6 +367,7 @@
 		};
 		4547C2B9195DF1C10075EBB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A345AB53AD9BA58474AB916 /* Pods-KeySmash.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -310,6 +382,7 @@
 		};
 		4547C2BA195DF1C10075EBB0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 110CBB4E03A0DB1057C38E52 /* Pods-KeySmash.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
