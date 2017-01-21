@@ -13,11 +13,11 @@ class HuntForKey: Modeable {
     
     func respond(to key:String)  {
         if(key == self.targetKey) {
-            self.immediatelySay("Great job! You pressed the letter \(targetKey)")
+            self.immediatelySay("Great job! You pressed the letter \(self.targetKey)")
             
             self.randomizeKey()
         } else {
-            self.immediatelySay("No.  Try again.  Press the \(targetKey) key")
+            self.immediatelySay("No.  Try again.  Press the \(self.targetKey) key")
         }
     }
     

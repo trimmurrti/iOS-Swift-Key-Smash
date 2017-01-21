@@ -4,7 +4,7 @@ import AVFoundation
 class Counting: Modeable {
     let synthesizer = AVSpeechSynthesizer()
     
-    let numbers = "123456789".characterStrings()
+    let numbers = (1...9).reduce("", { $0 + String($1) }).characterStrings()
     var numberIndex = -1
     
     var targetKey: String { return self.numbers[self.numberIndex] }
