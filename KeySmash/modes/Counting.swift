@@ -14,7 +14,7 @@ class Counting: Modeable {
         self.nextKey()
     }
     
-    func respondTo(_ key: String) {
+    func respond(to key:String) {
         if (key == self.targetKey) {
             self.immediatelySay("\(self.targetKey)")
             

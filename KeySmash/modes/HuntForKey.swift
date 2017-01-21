@@ -11,7 +11,7 @@ class HuntForKey: Modeable {
         self.randomizeKey()
     }
     
-    func respondTo(_ key: String)  {
+    func respond(to key:String)  {
         if(key == self.targetKey) {
             self.immediatelySay("Great job! You pressed the letter \(targetKey)")
             
@@ -21,7 +21,7 @@ class HuntForKey: Modeable {
         }
     }
     
-    func randomizeKey () {
+    func randomizeKey() {
         let randomLetterIndex = Int(arc4random()) % self.letters.count
         self.targetKey = self.letters[randomLetterIndex]
         

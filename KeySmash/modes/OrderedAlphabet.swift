@@ -11,12 +11,12 @@ class OrderedAlphabet: Modeable {
         return self.letters[self.letterIndex]
     }
     
-    func start()  {
+    func start() {
         self.say("Can you type your a b c's?")
         self.nextKey()
     }
     
-    func respondTo(_ key: String)  {
+    func respond(to key:String) {
         if(key == self.targetKey) {
             self.immediatelySay("\(self.targetKey)")
             

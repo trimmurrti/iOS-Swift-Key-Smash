@@ -9,7 +9,7 @@ class SayPressedKey: Modeable {
         self.say("Press any Key")
     }
     
-    func respondTo(_ key: String) {
+    func respond(to key:String) {
         let keys = [
             UIKeyInputEscape: "escape",
             UIKeyInputLeftArrow: "left",
