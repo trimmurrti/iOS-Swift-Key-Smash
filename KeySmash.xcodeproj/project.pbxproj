@@ -21,6 +21,8 @@
 		D754B1C01E339A1D00A85BDC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D754B1BF1E339A1D00A85BDC /* AVFoundation.framework */; };
 		D754B1C21E33D52B00A85BDC /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754B1C11E33D52B00A85BDC /* String+Extensions.swift */; };
 		D754B1C41E33DC5000A85BDC /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754B1C31E33DC5000A85BDC /* Mode.swift */; };
+		D754B1C61E33EDAF00A85BDC /* OrderedMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754B1C51E33EDAF00A85BDC /* OrderedMode.swift */; };
+		D754B1C81E33F5BA00A85BDC /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754B1C71E33F5BA00A85BDC /* Optional+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		D754B1BF1E339A1D00A85BDC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D754B1C11E33D52B00A85BDC /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		D754B1C31E33DC5000A85BDC /* Mode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
+		D754B1C51E33EDAF00A85BDC /* OrderedMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedMode.swift; sourceTree = "<group>"; };
+		D754B1C71E33F5BA00A85BDC /* Optional+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Optional+Extensions.swift"; sourceTree = "<group>"; };
 		FDC06DC216E05DC698BFF22B /* Pods_KeySmash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeySmash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -92,9 +96,10 @@
 				4547C2A1195DF1C10075EBB0 /* AppDelegate.swift */,
 				45FC1161196DCB63008985F0 /* ExternalKeyboard.swift */,
 				D754B1C11E33D52B00A85BDC /* String+Extensions.swift */,
+				D754B1C71E33F5BA00A85BDC /* Optional+Extensions.swift */,
+				4547C29F195DF1C10075EBB0 /* Supporting Files */,
 				4547C2A5195DF1C10075EBB0 /* Main.storyboard */,
 				4547C2A8195DF1C10075EBB0 /* Images.xcassets */,
-				4547C29F195DF1C10075EBB0 /* Supporting Files */,
 			);
 			path = KeySmash;
 			sourceTree = "<group>";
@@ -111,11 +116,12 @@
 			isa = PBXGroup;
 			children = (
 				456CDE9C196ED97D00B0F836 /* Modeable.swift */,
-				456CDE9B196ED97D00B0F836 /* HuntForKey.swift */,
 				456CDE9D196ED97D00B0F836 /* SayPressedKey.swift */,
+				456CDE9B196ED97D00B0F836 /* HuntForKey.swift */,
 				456CFFFF196EF373005E8E9C /* OrderedAlphabet.swift */,
 				456C0001196EF8C5005E8E9C /* Counting.swift */,
 				D754B1C31E33DC5000A85BDC /* Mode.swift */,
+				D754B1C51E33EDAF00A85BDC /* OrderedMode.swift */,
 			);
 			path = modes;
 			sourceTree = "<group>";
@@ -252,7 +258,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				456CDEA0196ED97D00B0F836 /* SayPressedKey.swift in Sources */,
+				D754B1C81E33F5BA00A85BDC /* Optional+Extensions.swift in Sources */,
 				45FC1162196DCB63008985F0 /* ExternalKeyboard.swift in Sources */,
+				D754B1C61E33EDAF00A85BDC /* OrderedMode.swift in Sources */,
 				456C0002196EF8C5005E8E9C /* Counting.swift in Sources */,
 				456CDE9F196ED97D00B0F836 /* Modeable.swift in Sources */,
 				D754B1C21E33D52B00A85BDC /* String+Extensions.swift in Sources */,
@@ -316,7 +324,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -356,7 +364,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -372,7 +380,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = KeySmash/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = KeySmash;
@@ -387,7 +394,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = KeySmash/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = KeySmash;
