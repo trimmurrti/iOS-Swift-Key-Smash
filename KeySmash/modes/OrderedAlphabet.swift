@@ -1,52 +1,50 @@
 import Foundation
 import AVFoundation
 
-class OrderedAlphabet : Mode
-{
+class OrderedAlphabet: Modeable {
     let synthesizer = AVSpeechSynthesizer()
     
-    let letters = Array("abcdefghijklmnopqrstuvwxyz".characters)
+    let letters = "abcdefghijklmnopqrstuvwxyz".characterStrings()
     var letterIndex = -1
 
-    var targetKey : String { return String(letters[letterIndex]) }
+    var targetKey: String {
+        return self.letters[self.letterIndex]
+    }
     
     func start()  {
-        say("Can you type your a b c's?")
-        nextKey()
+        self.say("Can you type your a b c's?")
+        self.nextKey()
     }
     
     func respondTo(_ key: String)  {
-        if(key == targetKey)
-        {
-            immediatelySay("\(targetKey)")
+        if(key == self.targetKey) {
+            self.immediatelySay("\(self.targetKey)")
             
-            nextKey()
-        }
-        else
-        {
-            immediatelySay("No.  Try again.  Press the \(targetKey) key")
+            self.nextKey()
+        } else {
+            self.immediatelySay("No.  Try again.  Press the \(self.targetKey) key")
         }
     }
     
-    func nextKey () {
-        letterIndex += 1
+    func nextKey() {
+        self.letterIndex += 1
         
-        if(letterIndex > letters.count-1) {
-            letterIndex = 0;
-            say("Great Job!  You typed the a b c's .   Let's do it again!")
+        if (self.letterIndex > self.letters.count - 1) {
+            self.letterIndex = 0;
+            self.say("Great Job!  You typed the a b c's .   Let's do it again!")
         }
         
-        say("Type \(targetKey)")
+        self.say("Type \(self.targetKey)")
     }
     
     func say(_ word: String) {
         let utterance = AVSpeechUtterance(string: word.lowercased())
-        synthesizer.speak(utterance)
+        self.synthesizer.speak(utterance)
     }
     
     func immediatelySay(_ word: String) {
         let utterance = AVSpeechUtterance(string: word.lowercased())
-        synthesizer.stopSpeaking(at: .immediate)
-        synthesizer.speak(utterance)
+        self.synthesizer.stopSpeaking(at: .immediate)
+        self.synthesizer.speak(utterance)
     }
 }

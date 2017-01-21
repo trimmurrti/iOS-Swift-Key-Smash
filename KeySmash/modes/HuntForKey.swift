@@ -1,43 +1,41 @@
 import Foundation
 import AVFoundation
 
-class HuntForKey : Mode {
-
+class HuntForKey: Modeable {
     let synthesizer = AVSpeechSynthesizer()
 
-    let letters = Array("abcdefghijklmnopqrstuvwxyz".characters)
+    let letters = "abcdefghijklmnopqrstuvwxyz".characterStrings()
     var targetKey = ""
     
     func start()  {
-        randomizeKey()
+        self.randomizeKey()
     }
     
     func respondTo(_ key: String)  {
-        if(key == targetKey)         {
-            immediatelySay("Great job! You pressed the letter \(targetKey)")
+        if(key == self.targetKey) {
+            self.immediatelySay("Great job! You pressed the letter \(targetKey)")
             
-            randomizeKey()
+            self.randomizeKey()
         } else {
-            immediatelySay("No.  Try again.  Press the \(targetKey) key")
+            self.immediatelySay("No.  Try again.  Press the \(targetKey) key")
         }
     }
     
     func randomizeKey () {
-        let randomLetterIndex = Int(arc4random()) % letters.count
-        targetKey = String(letters[randomLetterIndex])
+        let randomLetterIndex = Int(arc4random()) % self.letters.count
+        self.targetKey = self.letters[randomLetterIndex]
         
-        say("Press the \(targetKey) key")
+        self.say("Press the \(self.targetKey) key")
     }
     
     func say(_ word: String) {
         let utterance = AVSpeechUtterance(string: word.lowercased())
-        synthesizer.speak(utterance)
+        self.synthesizer.speak(utterance)
     }
     
     func immediatelySay(_ word: String) {
         let utterance = AVSpeechUtterance(string: word.lowercased())
-        synthesizer.stopSpeaking(at: .immediate)
-        synthesizer.speak(utterance)
+        self.synthesizer.stopSpeaking(at: .immediate)
+        self.synthesizer.speak(utterance)
     }
-    
 }
