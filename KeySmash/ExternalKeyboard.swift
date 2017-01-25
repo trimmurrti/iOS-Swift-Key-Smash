@@ -1,23 +1,16 @@
 import Foundation
 import UIKit
 
-typealias KeyCommands = [UIKeyCommand]
-
-func externalKeyboardKeys(_ callback:Selector) -> KeyCommands {
-    let noModifiers = UIKeyModifierFlags(rawValue: 0)
-    
-    func mapper(keys: [String], modifiers: [UIKeyModifierFlags]) -> KeyCommands {
-        return modifiers.flatMap { m in keys.map {
-            UIKeyCommand(input: $0, modifierFlags: m, action: callback) }
-        }
-    }
-
+func externalKeyboardKeys(_ callback: Selector) -> [UIKeyCommand] {
     // order matters.  ! needs priority over shift-1, @ over shift-2, etc
-    let characters = "!@#$%^&*()~`_+{}|:\"<>?abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-=[]\\;',./ "
-        .characterStrings()
+    let characters = "!@#$%^&*()~`_+{}|:\"<>?".characterStrings()
+        + String.letters()
+        + String.capitalLetters()
+        + String.digits()
+        + "-=[]\\;',./ ".characterStrings()
     
-    let modifiers = [
-        noModifiers,
+    let flags: [UIKeyModifierFlags] = [
+        [],
         .alphaShift,
         .shift,
         [.alphaShift, .shift],
@@ -32,8 +25,16 @@ func externalKeyboardKeys(_ callback:Selector) -> KeyCommands {
 
     let keys = [UIKeyInputEscape, UIKeyInputUpArrow, UIKeyInputDownArrow, UIKeyInputLeftArrow, UIKeyInputRightArrow]
     
-    return [(keys, [noModifiers]), (characters, modifiers)].reduce(KeyCommands()) {
-        $0 + mapper(keys: $1.0, modifiers: $1.1)
+    typealias Pair = (keys: [String], flags: [UIKeyModifierFlags])
+    let pairs: [Pair] = [
+        (keys, []),
+        (characters, flags)
+    ]
+    
+    return pairs.reduce([UIKeyCommand]()) { result, pair in
+        result + pair.flags.flatMap { flag in
+            pair.keys.map { UIKeyCommand(input: $0, modifierFlags: flag, action: callback) }
+        }
     }
 }
 

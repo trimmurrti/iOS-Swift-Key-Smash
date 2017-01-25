@@ -4,7 +4,7 @@ import AVFoundation
 class HuntForKey: Modeable {
     let synthesizer = AVSpeechSynthesizer()
 
-    let letters = "abcdefghijklmnopqrstuvwxyz".characterStrings()
+    let letters = String.letters()
     var targetKey = ""
     
     func start()  {
