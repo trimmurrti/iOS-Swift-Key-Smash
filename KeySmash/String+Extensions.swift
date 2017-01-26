@@ -8,7 +8,7 @@
 
 extension String {
     static func letters() -> [String] {
-        return self.characterStrings(from: "a", to: "z")
+        return self.characterStrings(from: "a", through: "z")
     }
     
     static func capitalLetters() -> [String] {
@@ -23,15 +23,13 @@ extension String {
     ///
     /// @param lhs  Starting character
     /// @param rhs  Closing character
-    static func characterStrings(from lhs: Character, to rhs: Character) -> [String] {
+    static func characterStrings(from lhs: Character, through rhs: Character) -> [String] {
         let bounds = [lhs, rhs].flatMap { String($0).utf16.first }
         
         return bounds.toTuple().flatMap { lhs, rhs in
-                bounds.minmax().flatMap { min, max in
-                    let sortedRange = min...max
-                    let range = lhs != min ? sortedRange.reversed() : Array(sortedRange)
-                    
-                    return range.flatMap { UnicodeScalar($0) }
+                bounds.min().flatMap { min in
+                    stride(from: lhs, through: rhs, by: lhs == min ? 1 : -1)
+                        .flatMap { UnicodeScalar($0) }
                         .map { String($0) }
                 }
             }
