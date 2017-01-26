@@ -26,17 +26,16 @@ extension String {
     static func characterStrings(from lhs: Character, to rhs: Character) -> [String] {
         let bounds = [lhs, rhs].flatMap { String($0).utf16.first }
         
-        if bounds.count < 2 {
-            return []
-        }
-        
-        let minmax = [bounds.min(), bounds.max()].flatMap { $0 }
-        let sortedRange = Array(minmax[0]...minmax[1])
-        let isReversed = bounds[0] != minmax[0]
-        let range = isReversed ? sortedRange.reversed() : sortedRange
-        
-        return range.flatMap { UnicodeScalar($0) }
-            .map { String($0) }
+        return bounds.toTuple().flatMap { lhs, rhs in
+                bounds.minmax().flatMap { min, max in
+                    let sortedRange = min...max
+                    let range = lhs != min ? sortedRange.reversed() : Array(sortedRange)
+                    
+                    return range.flatMap { UnicodeScalar($0) }
+                        .map { String($0) }
+                }
+            }
+            ?? []
     }
     
     func characterStrings() -> [String] {
