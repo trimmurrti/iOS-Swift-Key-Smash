@@ -19,19 +19,17 @@ extension String {
         return (0...9).map { String($0) }
     }
     
-    /// Construct an array of characters between lhs and rhs
+    /// Construct an array of character strings between lhs and rhs
     ///
     /// @param lhs  Starting character
     /// @param rhs  Closing character
     static func characterStrings(from lhs: Character, through rhs: Character) -> [String] {
         let bounds = [lhs, rhs].flatMap { String($0).utf16.first }
         
-        return bounds.toTuple().flatMap { lhs, rhs in
-                bounds.min().flatMap { min in
-                    stride(from: lhs, through: rhs, by: lhs == min ? 1 : -1)
-                        .flatMap { UnicodeScalar($0) }
-                        .map { String($0) }
-                }
+        return bounds.toTuple().map { lhs, rhs in
+                stride(from: lhs, through: rhs, by: lhs == min(lhs, rhs) ? 1 : -1)
+                    .flatMap { UnicodeScalar($0) }
+                    .map { String($0) }
             }
             ?? []
     }
