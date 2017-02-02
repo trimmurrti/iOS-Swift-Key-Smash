@@ -9,12 +9,12 @@ class SayPressedKey: Mode {
     
     override func respond(to key: String) {
         let keys = [
-            UIKeyInputEscape: "escape",
-            UIKeyInputLeftArrow: "left",
-            UIKeyInputRightArrow: "right",
-            UIKeyInputUpArrow: "up",
-            UIKeyInputDownArrow: "down",
-            " ": "space"
+            UIKeyInputEscape: KeyNames.escape,
+            UIKeyInputLeftArrow: KeyNames.left,
+            UIKeyInputRightArrow: KeyNames.right,
+            UIKeyInputUpArrow: KeyNames.up,
+            UIKeyInputDownArrow: KeyNames.down,
+            UIKeyInputSpace: KeyNames.space
         ]
     
         self.say(keys[key] ?? key)

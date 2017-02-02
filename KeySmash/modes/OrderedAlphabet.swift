@@ -4,7 +4,7 @@ import AVFoundation
 class OrderedAlphabet: Modeable {
     let synthesizer = AVSpeechSynthesizer()
     
-    let letters = String.letters()
+    let letters = KeyboardCharacters.letters
     var letterIndex = -1
 
     var targetKey: String {

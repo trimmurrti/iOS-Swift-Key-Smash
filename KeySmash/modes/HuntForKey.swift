@@ -4,7 +4,7 @@ import AVFoundation
 class HuntForKey: Modeable {
     let synthesizer = AVSpeechSynthesizer()
 
-    let letters = String.letters()
+    let letters = KeyboardCharacters.letters
     var targetKey = ""
     
     func start()  {
@@ -12,7 +12,7 @@ class HuntForKey: Modeable {
     }
     
     func respond(to key:String)  {
-        if(key == self.targetKey) {
+        if (key == self.targetKey) {
             self.immediatelySay("Great job! You pressed the letter \(self.targetKey)")
             
             self.randomizeKey()

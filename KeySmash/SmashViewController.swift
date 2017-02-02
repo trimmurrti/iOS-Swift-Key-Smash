@@ -3,18 +3,17 @@ import Foundation
 import AVFoundation
 import IDPCastable
 
-class SmashViewController: UIViewController, UITextFieldDelegate {
-    @IBOutlet var textField: UITextField!
+class SmashViewController: UIViewController {
+    @IBOutlet var textField: UITextField?
 
     let modes: [Modeable] = [SayPressedKey(), HuntForKey(), OrderedAlphabet(), Counting()]
     var currentModeIndex = 0
     var currentMode: Modeable { return self.modes[self.currentModeIndex] }
-    let keyCommandCache = externalKeyboardKeys(#selector(SmashViewController.sayKey(_:)))
+    let keyCommandCache = keyboardKeyCommands(with: #selector(SmashViewController.sayKey(_:)))
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.textField.becomeFirstResponder()    // focus on textField brings up the keyboard
-        self.textField.delegate = self
+        self.textField?.becomeFirstResponder()
         
         self.currentMode.start()
     }
@@ -30,7 +29,9 @@ class SmashViewController: UIViewController, UITextFieldDelegate {
             self.currentMode.respond(to: command.input)
         }
     }
-    
+}
+
+extension SmashViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField,
                    shouldChangeCharactersIn range: NSRange,
                    replacementString string: String)
@@ -40,20 +41,18 @@ class SmashViewController: UIViewController, UITextFieldDelegate {
         
         return false; // don't actually change the textfield
     }
-
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.currentMode.respond(to: "enter")
+        self.currentMode.respond(to: KeyNames.enter)
         
         return false //ignore enter
     }
     
     func nextMode() {
-        self.currentModeIndex += 1
-        if (self.currentModeIndex > self.modes.count - 1) {
-            self.currentModeIndex = 0
-        }
+        let index = self.currentModeIndex % self.modes.count
+        
+        self.currentModeIndex = index
         
         self.currentMode.start()
     }
 }
-
