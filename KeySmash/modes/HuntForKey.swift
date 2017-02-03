@@ -1,41 +1,30 @@
 import Foundation
 import AVFoundation
 
-class HuntForKey: Modeable {
-    let synthesizer = AVSpeechSynthesizer()
-
-    let letters = KeyboardCharacters.letters
-    var targetKey = ""
-    
-    func start()  {
-        self.randomizeKey()
+class HuntForKey: TargetMode {
+    init() {
+        super.init(KeyboardCharacters.letters)
     }
     
-    func respond(to key:String)  {
-        if (key == self.targetKey) {
-            self.immediatelySay("Great job! You pressed the letter \(self.targetKey)")
-            
-            self.randomizeKey()
-        } else {
-            self.immediatelySay("No.  Try again.  Press the \(self.targetKey) key")
-        }
-    }
-    
-    func randomizeKey() {
-        let randomLetterIndex = Int(arc4random()) % self.letters.count
-        self.targetKey = self.letters[randomLetterIndex]
+    override func start()  {
+        self.setNextKey()
         
-        self.say("Press the \(self.targetKey) key")
+        super.start()
     }
     
-    func say(_ word: String) {
-        let utterance = AVSpeechUtterance(string: word.lowercased())
-        self.synthesizer.speak(utterance)
+    override var taskPhrase: String? {
+        return "Press the \(self.targetKey) key."
     }
     
-    func immediatelySay(_ word: String) {
-        let utterance = AVSpeechUtterance(string: word.lowercased())
-        self.synthesizer.stopSpeaking(at: .immediate)
-        self.synthesizer.speak(utterance)
+    override var successPhrase: String? {
+        return "Great job! You pressed the letter \(self.targetKey)."
+    }
+    
+    override var failPhrase: String? {
+        return "No.  Try again."
+    }
+    
+    override func setNextKey() {
+        self.targetIndex = Int(exactly: arc4random_uniform(UInt32(exactly: self.strings.count) ?? 0)) ?? 0
     }
 }

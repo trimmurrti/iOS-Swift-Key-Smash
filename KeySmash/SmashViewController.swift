@@ -6,7 +6,7 @@ import IDPCastable
 class SmashViewController: UIViewController {
     @IBOutlet var textField: UITextField?
 
-    let modes: [Modeable] = [SayPressedKey(), HuntForKey(), OrderedAlphabet(), Counting()]
+    let modes: [Modeable] = [HuntForKey(), SayPressedKey(), OrderedAlphabet(), Counting()]
     var currentModeIndex = 0
     var currentMode: Modeable { return self.modes[self.currentModeIndex] }
     let keyCommandCache = keyboardKeyCommands(with: #selector(SmashViewController.sayKey(_:)))

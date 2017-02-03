@@ -22,7 +22,7 @@ class OrderedMode: Mode {
     var startPhrase: String? { return nil }
     
     override func start()  {
-        self.startPhrase.dispatch { self.say($0) }
+        self.startPhrase.dispatch { self.synthesizer.say($0) }
         
         self.nextKey()
     }
@@ -36,7 +36,7 @@ class OrderedMode: Mode {
         }
         
         let phrase = "No.  Try again.  Press the " + (isTargetKey ? "\(targetKey) " : "") + "key"
-        self.say(phrase, immediately: true)
+        self.synthesizer.say(phrase, immediately: true)
     }
     
     func nextKey () {
@@ -53,6 +53,6 @@ class OrderedMode: Mode {
             "Press \(index)"
         ]
         
-        phrases.forEach { self.say($0) }
+        phrases.forEach { self.synthesizer.say($0) }
     }
 }

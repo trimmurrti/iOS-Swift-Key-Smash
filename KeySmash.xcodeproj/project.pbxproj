@@ -26,6 +26,7 @@
 		D754B1C41E33DC5000A85BDC /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754B1C31E33DC5000A85BDC /* Mode.swift */; };
 		D754B1C61E33EDAF00A85BDC /* OrderedMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754B1C51E33EDAF00A85BDC /* OrderedMode.swift */; };
 		D754B1C81E33F5BA00A85BDC /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754B1C71E33F5BA00A85BDC /* Optional+Extensions.swift */; };
+		D7FEDBEE1E44AE7800C2E50B /* TargetMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FEDBED1E44AE7800C2E50B /* TargetMode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		D754B1C31E33DC5000A85BDC /* Mode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
 		D754B1C51E33EDAF00A85BDC /* OrderedMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedMode.swift; sourceTree = "<group>"; };
 		D754B1C71E33F5BA00A85BDC /* Optional+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Optional+Extensions.swift"; sourceTree = "<group>"; };
+		D7FEDBED1E44AE7800C2E50B /* TargetMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetMode.swift; sourceTree = "<group>"; };
 		FDC06DC216E05DC698BFF22B /* Pods_KeySmash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeySmash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -131,6 +133,7 @@
 				D754B1C31E33DC5000A85BDC /* Mode.swift */,
 				D754B1C51E33EDAF00A85BDC /* OrderedMode.swift */,
 				D71801CF1E438F31007D2441 /* Synthesizer.swift */,
+				D7FEDBED1E44AE7800C2E50B /* TargetMode.swift */,
 			);
 			path = modes;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				D754B1C61E33EDAF00A85BDC /* OrderedMode.swift in Sources */,
 				D71801D01E438F31007D2441 /* Synthesizer.swift in Sources */,
 				456C0002196EF8C5005E8E9C /* Counting.swift in Sources */,
+				D7FEDBEE1E44AE7800C2E50B /* TargetMode.swift in Sources */,
 				456CDE9F196ED97D00B0F836 /* Modeable.swift in Sources */,
 				D754B1C21E33D52B00A85BDC /* String+Extensions.swift in Sources */,
 				456CDE9E196ED97D00B0F836 /* HuntForKey.swift in Sources */,
