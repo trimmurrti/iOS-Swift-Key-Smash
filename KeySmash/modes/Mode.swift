@@ -19,17 +19,17 @@ class Mode: Modeable {
         
     }
     
-    func say(phrases: [String?], immediately: Bool = true) {
+    func say(_ phrases: [String?], immediately: Bool = true) {
         let strings = phrases.flatMap { $0 }
         
-        self.say(phrases: strings, immediately: immediately)
+        self.say(strings, immediately: immediately)
     }
     
-    func say(phrases: [String], immediately: Bool = true) {
+    func say(_ phrases: [String], immediately: Bool = true) {
         self.synthesizer.say(phrases, immediately: immediately)
     }
     
-    func say(phrase: String, immediately: Bool = true) {
+    func say(_ phrase: String, immediately: Bool = true) {
         self.synthesizer.say(phrase, immediately: immediately)
     }
 }

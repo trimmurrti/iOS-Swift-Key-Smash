@@ -47,7 +47,7 @@ class TargetMode: Mode {
     }
     
     override func start() {
-        self.say(phrases: self.startPhrases())
+        self.say(self.startPhrases())
     }
     
     override func respond(to key: String) {
@@ -56,6 +56,6 @@ class TargetMode: Mode {
             self.setNextKey()
         }
         
-        self.say(phrases: phrases + [self.taskPhrase])
+        self.say(phrases + [self.taskPhrase])
     }
 }

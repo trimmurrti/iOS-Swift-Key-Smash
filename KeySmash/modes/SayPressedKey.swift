@@ -4,7 +4,7 @@ import AVFoundation
 
 class SayPressedKey: Mode {
     override func start()  {
-        self.synthesizer.say("Press any Key")
+        self.say("Press any Key")
     }
     
     override func respond(to key: String) {
@@ -17,6 +17,6 @@ class SayPressedKey: Mode {
             UIKeyInputSpace: KeyNames.space
         ]
     
-        self.synthesizer.say(keys[key] ?? key)
+        self.say(keys[key] ?? key)
     }
 }
