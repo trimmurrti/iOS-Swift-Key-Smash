@@ -15,9 +15,9 @@ class TargetMode: Mode {
     var targetKey: String { return String(self.strings[self.targetIndex]) }
 
     var startPhrase: String? { return nil }
-    var taskPhrase: String? { return nil }
+    var taskPhrase: String? { return "Press the \(self.targetKey) key." }
     var successPhrase: String? { return nil }
-    var failPhrase: String? { return nil }
+    var failPhrase: String? { return "No. Try again." }
     
     init(_ strings: [String]) {
         self.strings = strings
