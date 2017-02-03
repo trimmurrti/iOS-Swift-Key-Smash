@@ -12,7 +12,7 @@ class TargetMode: Mode {
     let strings: [String]
     
     var targetIndex = 0
-    var targetKey: String { return String(self.strings[self.targetIndex]) }
+    var targetKey: String { return self.strings[self.targetIndex] }
 
     var startPhrase: String? { return nil }
     var taskPhrase: String? { return "Press the \(self.targetKey) key." }
