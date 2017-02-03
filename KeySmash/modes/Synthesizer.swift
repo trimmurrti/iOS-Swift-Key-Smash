@@ -11,13 +11,17 @@ import AVFoundation
 class Synthesizer {
     let synthesizer = AVSpeechSynthesizer()
     
-    func say(_ word: String, immediately: Bool = true) {
+    func say(_ phrase: String, immediately: Bool = true) {
+        self.say([phrase], immediately: immediately)
+    }
+    
+    func say(_ phrases: [String], immediately: Bool = true) {
         let synthesizer = self.synthesizer
         if immediately {
             synthesizer.stopSpeaking(at: .immediate)
         }
         
-        let utterance = AVSpeechUtterance(string: word.lowercased())
-        synthesizer.speak(utterance)
+        phrases.map { AVSpeechUtterance(string: $0) }
+            .forEach { synthesizer.speak($0) }
     }
 }

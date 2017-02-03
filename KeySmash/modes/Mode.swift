@@ -26,15 +26,7 @@ class Mode: Modeable {
     }
     
     func say(phrases: [String], immediately: Bool = true) {
-        let count = phrases.count
-        if count > 0 {
-            self.say(phrase: phrases[0], immediately: immediately)
-            if count > 1 {
-                phrases[1..<count].forEach {
-                    self.say(phrase: $0, immediately: false)
-                }
-            }
-        }
+        self.synthesizer.say(phrases, immediately: immediately)
     }
     
     func say(phrase: String, immediately: Bool = true) {
