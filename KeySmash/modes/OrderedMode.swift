@@ -1,58 +1,64 @@
 //
-//  OrderedMode.swift
+//  TargetMode.swift
 //  KeySmash
 //
-//  Created by trimm on 1/21/17.
+//  Created by Oleksa 'trimm' Korin on 2/3/17.
 //  Copyright © 2017 Piikea Street. All rights reserved.
 //
 
-import Foundation
-
 class OrderedMode: Mode {
     let strings: [String]
+    
+    var targetIndex = 0
+    var targetKey: String { return self.strings[self.targetIndex] }
+
+    var startPhrase: String? { return nil }
+    var taskPhrase: String? { return "Press the \(self.targetKey) key." }
+    var successPhrase: String? { return nil }
+    var failPhrase: String? { return "No. Try again." }
     
     init(_ strings: [String]) {
         self.strings = strings
     }
     
-    var targetIndex = -1
-    
-    var targetKey: String { return self.strings[self.targetIndex] }
-    
-    var startPhrase: String? { return nil }
-    
-    override func start()  {
-        self.startPhrase.dispatch { self.synthesizer.say($0) }
-        
-        self.nextKey()
+    func startPhrases() -> [String?] {
+        return [self.startPhrase, self.taskPhrase]
     }
     
-    override func respond(to key:String) {
-        let targetKey = self.targetKey
-        let isTargetKey = key == targetKey
-        
-        if (isTargetKey) {
-            self.nextKey()
+    func responsePhrases(for key: String) -> [String?] {
+        return [
+            self.keyPhrase(key),
+            self.isCorrect(key) ? nil : self.failPhrase,
+            self.isSuccess(key) ? self.successPhrase : nil
+        ]
+    }
+    
+    func isCorrect(_ key: String) -> Bool {
+        return key == self.targetKey
+    }
+    
+    func isSuccess(_ key: String) -> Bool {
+        return self.isCorrect(key) && (self.targetIndex + 1) == self.strings.count
+    }
+    
+    func keyPhrase(_ key: String) -> String? {
+        return key
+    }
+    
+    func setNextKey() {
+        self.targetIndex = (self.targetIndex + 1) % self.strings.count
+    }
+    
+    override func start() {
+        self.say(self.startPhrases())
+    }
+    
+    override func respond(to key: String) {
+        let phrases = self.responsePhrases(for: key)
+        if self.isCorrect(key) {
+            self.setNextKey()
         }
         
-        let phrase = "No.  Try again.  Press the " + (isTargetKey ? "\(targetKey) " : "") + "key"
-        self.synthesizer.say(phrase, immediately: true)
-    }
-    
-    func nextKey () {
-        var index = self.targetIndex
-        index += 1
-        
-        let count = self.strings.count
-        let isModeFinished = count <= index
-        
-        self.targetIndex = index % count
-        
-        let phrases = [
-            isModeFinished ? "Great Job! You counted to 9. Let's do it again!" : "",
-            "Press \(index)"
-        ]
-        
-        phrases.forEach { self.synthesizer.say($0) }
+        self.say(phrases + [self.taskPhrase])
     }
 }

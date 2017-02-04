@@ -1,7 +1,7 @@
 import Foundation
 import AVFoundation
 
-class HuntForKey: TargetMode {
+class HuntForKey: OrderedMode {
     init() {
         super.init(KeyboardCharacters.letters)
     }
@@ -14,6 +14,10 @@ class HuntForKey: TargetMode {
     
     override var successPhrase: String? {
         return "Great job! You pressed the letter \(self.targetKey)."
+    }
+    
+    override func isSuccess(_ key: String) -> Bool {
+        return self.isCorrect(key)
     }
     
     override func setNextKey() {

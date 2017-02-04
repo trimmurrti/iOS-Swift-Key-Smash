@@ -14,7 +14,6 @@
 		456C0000196EF373005E8E9C /* OrderedAlphabet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456CFFFF196EF373005E8E9C /* OrderedAlphabet.swift */; };
 		456C0002196EF8C5005E8E9C /* Counting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456C0001196EF8C5005E8E9C /* Counting.swift */; };
 		456CDE9E196ED97D00B0F836 /* HuntForKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456CDE9B196ED97D00B0F836 /* HuntForKey.swift */; };
-		456CDE9F196ED97D00B0F836 /* Modeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456CDE9C196ED97D00B0F836 /* Modeable.swift */; };
 		456CDEA0196ED97D00B0F836 /* SayPressedKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456CDE9D196ED97D00B0F836 /* SayPressedKey.swift */; };
 		45FC1162196DCB63008985F0 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FC1161196DCB63008985F0 /* Keyboard.swift */; };
 		52CDC69E0E8592D5C9257C0C /* Pods_KeySmash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDC06DC216E05DC698BFF22B /* Pods_KeySmash.framework */; };
@@ -24,9 +23,8 @@
 		D754B1C01E339A1D00A85BDC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D754B1BF1E339A1D00A85BDC /* AVFoundation.framework */; };
 		D754B1C21E33D52B00A85BDC /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754B1C11E33D52B00A85BDC /* String+Extensions.swift */; };
 		D754B1C41E33DC5000A85BDC /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754B1C31E33DC5000A85BDC /* Mode.swift */; };
-		D754B1C61E33EDAF00A85BDC /* OrderedMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754B1C51E33EDAF00A85BDC /* OrderedMode.swift */; };
 		D754B1C81E33F5BA00A85BDC /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754B1C71E33F5BA00A85BDC /* Optional+Extensions.swift */; };
-		D7FEDBEE1E44AE7800C2E50B /* TargetMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FEDBED1E44AE7800C2E50B /* TargetMode.swift */; };
+		D7FEDBEE1E44AE7800C2E50B /* OrderedMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FEDBED1E44AE7800C2E50B /* OrderedMode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +37,6 @@
 		4547C2A8195DF1C10075EBB0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		456C0001196EF8C5005E8E9C /* Counting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Counting.swift; sourceTree = "<group>"; };
 		456CDE9B196ED97D00B0F836 /* HuntForKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuntForKey.swift; sourceTree = "<group>"; };
-		456CDE9C196ED97D00B0F836 /* Modeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modeable.swift; sourceTree = "<group>"; };
 		456CDE9D196ED97D00B0F836 /* SayPressedKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SayPressedKey.swift; sourceTree = "<group>"; };
 		456CFFFF196EF373005E8E9C /* OrderedAlphabet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedAlphabet.swift; sourceTree = "<group>"; };
 		45FC1161196DCB63008985F0 /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
@@ -50,9 +47,8 @@
 		D754B1BF1E339A1D00A85BDC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D754B1C11E33D52B00A85BDC /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		D754B1C31E33DC5000A85BDC /* Mode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
-		D754B1C51E33EDAF00A85BDC /* OrderedMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedMode.swift; sourceTree = "<group>"; };
 		D754B1C71E33F5BA00A85BDC /* Optional+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Optional+Extensions.swift"; sourceTree = "<group>"; };
-		D7FEDBED1E44AE7800C2E50B /* TargetMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetMode.swift; sourceTree = "<group>"; };
+		D7FEDBED1E44AE7800C2E50B /* OrderedMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedMode.swift; sourceTree = "<group>"; };
 		FDC06DC216E05DC698BFF22B /* Pods_KeySmash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeySmash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -125,15 +121,13 @@
 		456CDE9A196ED97D00B0F836 /* modes */ = {
 			isa = PBXGroup;
 			children = (
-				456CDE9C196ED97D00B0F836 /* Modeable.swift */,
+				D754B1C31E33DC5000A85BDC /* Mode.swift */,
+				D7FEDBED1E44AE7800C2E50B /* OrderedMode.swift */,
 				456CDE9D196ED97D00B0F836 /* SayPressedKey.swift */,
 				456CDE9B196ED97D00B0F836 /* HuntForKey.swift */,
 				456CFFFF196EF373005E8E9C /* OrderedAlphabet.swift */,
 				456C0001196EF8C5005E8E9C /* Counting.swift */,
-				D754B1C31E33DC5000A85BDC /* Mode.swift */,
-				D754B1C51E33EDAF00A85BDC /* OrderedMode.swift */,
 				D71801CF1E438F31007D2441 /* Synthesizer.swift */,
-				D7FEDBED1E44AE7800C2E50B /* TargetMode.swift */,
 			);
 			path = modes;
 			sourceTree = "<group>";
@@ -273,11 +267,9 @@
 				D754B1C81E33F5BA00A85BDC /* Optional+Extensions.swift in Sources */,
 				45FC1162196DCB63008985F0 /* Keyboard.swift in Sources */,
 				D70EBF6A1E3A160B00D00AB2 /* Array+Extensions.swift in Sources */,
-				D754B1C61E33EDAF00A85BDC /* OrderedMode.swift in Sources */,
 				D71801D01E438F31007D2441 /* Synthesizer.swift in Sources */,
 				456C0002196EF8C5005E8E9C /* Counting.swift in Sources */,
-				D7FEDBEE1E44AE7800C2E50B /* TargetMode.swift in Sources */,
-				456CDE9F196ED97D00B0F836 /* Modeable.swift in Sources */,
+				D7FEDBEE1E44AE7800C2E50B /* OrderedMode.swift in Sources */,
 				D754B1C21E33D52B00A85BDC /* String+Extensions.swift in Sources */,
 				456CDE9E196ED97D00B0F836 /* HuntForKey.swift in Sources */,
 				D754B1C41E33DC5000A85BDC /* Mode.swift in Sources */,

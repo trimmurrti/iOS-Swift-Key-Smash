@@ -1,50 +1,19 @@
 import Foundation
-import AVFoundation
 
-class OrderedAlphabet: Modeable {
-    let synthesizer = AVSpeechSynthesizer()
-    
-    let letters = KeyboardCharacters.letters
-    var letterIndex = -1
-
-    var targetKey: String {
-        return self.letters[self.letterIndex]
+class OrderedAlphabet: OrderedMode {
+    init() {
+        super.init(KeyboardCharacters.letters)
     }
     
-    func start() {
-        self.say("Can you type your a b c's?")
-        self.nextKey()
+    override var startPhrase: String? {
+        return "Can you type your a b c's?"
     }
     
-    func respond(to key:String) {
-        if(key == self.targetKey) {
-            self.immediatelySay("\(self.targetKey)")
-            
-            self.nextKey()
-        } else {
-            self.immediatelySay("No.  Try again.  Press the \(self.targetKey) key")
-        }
+    override var successPhrase: String? {
+        return "Great Job! You typed the a b c's. Let's do it again!"
     }
     
-    func nextKey() {
-        self.letterIndex += 1
-        
-        if (self.letterIndex > self.letters.count - 1) {
-            self.letterIndex = 0;
-            self.say("Great Job!  You typed the a b c's .   Let's do it again!")
-        }
-        
-        self.say("Type \(self.targetKey)")
-    }
-    
-    func say(_ word: String) {
-        let utterance = AVSpeechUtterance(string: word.lowercased())
-        self.synthesizer.speak(utterance)
-    }
-    
-    func immediatelySay(_ word: String) {
-        let utterance = AVSpeechUtterance(string: word.lowercased())
-        self.synthesizer.stopSpeaking(at: .immediate)
-        self.synthesizer.speak(utterance)
+    override var taskPhrase: String? {
+        return "Type \(self.targetKey)."
     }
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Mode: Modeable {
+class Mode {
     let synthesizer = Synthesizer()
     
     func start() {

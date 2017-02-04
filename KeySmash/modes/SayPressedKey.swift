@@ -7,16 +7,16 @@ class SayPressedKey: Mode {
         self.say("Press any Key")
     }
     
-    override func respond(to key: String) {
-        let keys = [
-            UIKeyInputEscape: KeyNames.escape,
-            UIKeyInputLeftArrow: KeyNames.left,
-            UIKeyInputRightArrow: KeyNames.right,
-            UIKeyInputUpArrow: KeyNames.up,
-            UIKeyInputDownArrow: KeyNames.down,
-            UIKeyInputSpace: KeyNames.space
-        ]
+    let keys = [
+        UIKeyInputEscape: KeyNames.escape,
+        UIKeyInputLeftArrow: KeyNames.left,
+        UIKeyInputRightArrow: KeyNames.right,
+        UIKeyInputUpArrow: KeyNames.up,
+        UIKeyInputDownArrow: KeyNames.down,
+        UIKeyInputSpace: KeyNames.space
+    ]
     
-        self.say(keys[key] ?? key)
+    override func respond(to key: String) {
+        self.say(self.keys[key] ?? key)
     }
 }

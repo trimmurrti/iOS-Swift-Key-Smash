@@ -6,9 +6,9 @@ import IDPCastable
 class SmashViewController: UIViewController {
     @IBOutlet var textField: UITextField?
 
-    let modes: [Modeable] = [HuntForKey(), SayPressedKey(), OrderedAlphabet(), Counting()]
+    let modes: [Mode] = [SayPressedKey(), HuntForKey(), OrderedAlphabet(), Counting()]
     var currentModeIndex = 0
-    var currentMode: Modeable { return self.modes[self.currentModeIndex] }
+    var currentMode: Mode { return self.modes[self.currentModeIndex] }
     let keyCommandCache = keyboardKeyCommands(with: #selector(SmashViewController.sayKey(_:)))
 
     override func viewDidLoad() {
@@ -18,9 +18,7 @@ class SmashViewController: UIViewController {
         self.currentMode.start()
     }
     
-    override var keyCommands: [UIKeyCommand]? {
-        get { return self.keyCommandCache }
-    }
+    override var keyCommands: [UIKeyCommand]? {  return self.keyCommandCache }
     
     func sayKey(_ command:UIKeyCommand) {
         if (cast(command.input) == UIKeyInputRightArrow) {
@@ -28,6 +26,14 @@ class SmashViewController: UIViewController {
         } else {
             self.currentMode.respond(to: command.input)
         }
+    }
+    
+    func nextMode() {
+        let index = self.currentModeIndex % self.modes.count
+        
+        self.currentModeIndex = index
+        
+        self.currentMode.start()
     }
 }
 
@@ -46,13 +52,5 @@ extension SmashViewController: UITextFieldDelegate {
         self.currentMode.respond(to: KeyNames.enter)
         
         return false //ignore enter
-    }
-    
-    func nextMode() {
-        let index = self.currentModeIndex % self.modes.count
-        
-        self.currentModeIndex = index
-        
-        self.currentMode.start()
     }
 }
